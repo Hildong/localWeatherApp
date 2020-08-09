@@ -60,8 +60,8 @@ navigator.geolocation.getCurrentPosition(position => {
   lastlyUpdatedText.style.display = "inline";
 
   //Creating the url, consiting of lat&long (for deciding location) and my AppID to get the current weather but also future forecasted weather data
-  urlCurrentWeather = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${appID}&units=metric`;
-  urlForecast = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${appID}&units=metric`;
+  urlCurrentWeather = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${appID}&units=metric`;
+  urlForecast = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${appID}&units=metric`;
   //Here I'm also console.logging the url to see that everything is working out 
   console.log(urlCurrentWeather);
 
