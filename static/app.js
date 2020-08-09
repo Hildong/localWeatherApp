@@ -144,7 +144,7 @@ navigator.geolocation.getCurrentPosition(position => {
 
 //Horizontal scrolling 
 window.addEventListener('wheel', e => {
-
+ 
   if (e.deltaY > 0) weatherSection.scrollLeft += 80;
   else weatherSection.scrollLeft -= 80;
 
