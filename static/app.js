@@ -11,7 +11,7 @@ let currentTimeInHours = new Date().getHours();
 let currentTimeInMinutes = new Date().getMinutes();
 let currentTimeInSeconds = new Date().getSeconds();
 //My weathermapapi APPID 
-const appID = "816ae706e487eef53bf6849ee89d18d1";
+const appID = "431b11f0548a9ec79b8abc198a2bcd32";
 //Creating later used variables at top, cause it looks better and also because global scoping
 let long, lat, urlCurrentWeather, urlForecast, weatherID, isRaining, isModeratlyCloudy, isCloudy, isSnowing, isThunder, currentTime, timeInHours;
 //Create an array with all raining codes from openweathermap, except 500 cause it's only light raining and can be a little confusing
@@ -131,14 +131,18 @@ navigator.geolocation.getCurrentPosition(position => {
       let nodeForDate = document.createElement("span");
       let textnodeForDate = document.createTextNode(`${data["list"][i]["dt_txt"]}`);
       nodeForDate.appendChild(textnodeForDate);
-      document.querySelector(".forecast-weather-data").appendChild(nodeForDate).classList.add("forecasted-weather-date");
+      document.querySelector(".forecast-weather-date").appendChild(nodeForDate).classList.add("forecasted-weather-date");
       //Create element for weather
       let nodeForWeather = document.createElement("p");
       let textnodeForWeather = document.createTextNode(`${data["list"][i]["main"]["temp"]}°C - ${data["list"][i]["weather"][0]["main"]}`);
       nodeForWeather.appendChild(textnodeForWeather);
-      document.querySelector(".forecast-weather-box").appendChild(nodeForWeather).classList.add("forecasted-weather-data");
+      document.querySelector(".forecast-weather-data").appendChild(nodeForWeather).classList.add("forecasted-weather-data");
     }
 
+  })
+  .then(() => {
+    let loader = document.querySelector(".loader");
+    loader.style.display = "none"
   })
 })
 
